@@ -82,6 +82,8 @@ public:
                 highlightWinningSegments(row, col);
                 segmentWinStatus[row / 3][col / 3] = (turnX ? 'X' : 'O');
                 turnX = !turnX;
+            }else {
+                turnX = !turnX;
             }
             ispath(row%3 * 3, col%3 * 3);
             highlightSegment(row%3 * 3, col%3 * 3, 1);
@@ -95,8 +97,6 @@ public:
                 QMessageBox::information(this, "Ничья", "Игра окончена, ничья!");
                 gameOver = true;
                 resetGame();
-            } else {
-                turnX = !turnX;
             }
             button->setEnabled(false);
         }
